@@ -1,0 +1,151 @@
+body 
+{background:#fff url('../images/bg.gif') repeat top center;
+
+color:#8c8a8b;
+
+}
+.div1
+{
+margin-top:-20px;
+width:100% ;
+height:150px;
+background-color:  	#0000CD;
+border-radius:10px;
+}
+
+.div2
+{
+margin-left:80%;
+margin-top:-6%;
+padding-left:10%;
+width:120px ;
+height:70px;
+background-color:#1E90FF;
+border-radius:10px;
+}
+
+
+
+.welcome
+{
+text-align:center;
+margin-left:-125px;
+margin-top:10px;
+}
+
+.p1
+{
+color:white;
+padding-top:30px;
+margin-left:5%;
+font-size:30px;
+
+}
+
+.options
+{
+margin-left:20px;
+margin-top:-20px; 
+border:0px solid black; 
+border-radius:10px;
+width:200px;
+padding: 0.5%;
+}
+.checkbox
+{
+	
+}
+
+.logo 
+{
+     color:green;
+    width: 10%;
+    height: 7%;
+}
+.logo1
+{ color:green;
+    width: 10%;
+    height: 7%;
+}
+#previous_button
+{
+        
+	 height: 80%;
+	width:70%;
+	position:fixed;
+    top: 86%;
+    left: 8%;
+	font-size:80%;
+	margin-left:12%;
+	text-align:center;
+	
+}
+
+
+
+
+
+input:required
+{
+
+border:1px dotted  blue;	
+
+}
+
+input:valid
+{
+border:1px dotted green;	
+background:#fff;	
+
+}
+input:focus:invalid
+{
+border:1px dotted  blue;	
+
+}
+*:focus {
+    outline: 0;
+}
+
+.button {
+margin-left:25%;
+ color:#08233e; 
+font:2em Futura, ‘Century Gothic’, AppleGothic, sans-serif; 
+font-size:70%; 
+padding-left:2%; 
+outline:none;
+repeat-x center #ffcc00; 
+background-color:#1E90FF; 
+border:0px solid blue; 
+-moz-border-radius:10px; 
+-webkit-border-radius:10px; 
+border-radius:10px; 
+
+cursor:pointer; 
+}
+
+#jump_to
+{
+	border:0px dotted green;
+	position:absolute;
+	margin-left:70%;
+	margin-right:10%;
+	top:40%;
+	
+	width:207px;
+	
+}
+#butt
+{
+	width:65px;
+	height:45px;
+}
+#inbox
+{
+	width:10px
+}
+.submit:hover {border:0px solid #999;color:#red;}
+*:focus
+{
+	outline:none;
+}

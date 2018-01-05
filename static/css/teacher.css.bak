@@ -1,0 +1,115 @@
+html
+{
+	border :0px solid black;
+}
+body
+{ 
+	margin: 0 0 0 0;
+	
+}
+#header { color:green;
+    position:relative;
+    height: 653px;
+    margin: 0 0 0 0;	
+    border: #0f0f12 outset 0px;
+    border-radius: 8px;
+}
+
+#loginBox {
+       color:green;
+    font-size: 120%;
+    padding:1% 1% ;
+    color:#6600CC;
+
+}
+
+.transbox 
+  { color:green;
+	background-color:#ffffff;
+	opacity:0.67;	
+	filter:alpha(opacity=60); /* For IE8 and earlier */
+	font-weight:10%;
+	color:#000000;
+	height:100%;
+	 width: 100%;
+	
+  }
+.headerBg 
+{
+ color:green;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.logo 
+{
+     color:green;
+    width: 7%;
+    height: 10%;
+}
+.logo1
+{ color:green;
+    width: 17%;
+    height: 10%;
+}
+#createpaper
+{
+        
+	 height: 80%;
+	width:70%;
+	position:fixed;
+    top: 76%;
+    left: -28%;
+	font-size:80%;
+	margin-left:12%;
+	text-align:center;
+    
+	
+	
+	
+}
+.boxes
+{ color:#6600CC;
+	left:20%;
+	width:17%;
+	position:absolute;
+	border:1px dotted #6600CC;
+	border-radius:8px;
+	height:4.3%;
+}
+#test_details
+{
+	font-size:250%;
+	margin-bottom:3%;
+	padding-left:1%;
+    color:green;
+}
+#textarea
+{
+border:1px dotted #6600CC; 
+color:#6600CC;
+border-radius:15px;
+padding-left:1%;
+padding-right:1%;
+    
+}
+input:required
+{
+
+border:1px dotted  blue;	
+
+}
+
+input:valid
+{
+border:1px dotted green;	
+background:#fff;	
+
+}
+input:focus:invalid
+{
+border:1px dotted  blue;	
+
+}

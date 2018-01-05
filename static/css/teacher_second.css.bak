@@ -1,0 +1,58 @@
+body 
+{background:#fff url('../images/bg.gif') repeat top center;
+font-size:87.5%;
+font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight:300;
+color:#8c8a8b;
+text-align:center;
+line-height:1.7em;
+padding-left:20%;
+}
+
+#questions {
+
+    text-align:left;
+    margin-left:1%;
+    color:green;
+    font-size: 120%;
+    padding:0% 0% 0% ;
+    color:#6600CC;
+
+}
+
+
+.logo1
+{ color:green;
+    width: 17%;
+    height: 10%;
+}
+#logo
+{
+	height:50px;
+}
+
+#save_form
+{
+text-align:left;
+border-radius:10px;
+ -webkit-border-radius:10px;
+}
+#save
+{
+	margin-left:26%;
+	 cursor:pointer;
+}
+#next
+{
+    background:transparent;
+	margin-left:13.8%;
+	 cursor:pointer;
+}
+#prev
+{
+	cursor:pointer;
+}
+*:focus
+{
+	outline:none;
+}
