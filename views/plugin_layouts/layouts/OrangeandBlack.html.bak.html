@@ -27,7 +27,7 @@ div.error { background-color: red; color: white; padding: 3px; }
 .auth_navbar { text-align:right; z-index:20; position: absolute; top: 2px; right:30px; border:0; padding:0 }
   </style>
  </head>
- <body>
+    <body style="background-color:white">
   <!-- start header -->
   {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
 

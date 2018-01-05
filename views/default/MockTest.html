@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Stu_Main</title>
+    <link rel="stylesheet" href="{{=URL('static','css/MockTest.css')}}">
+</head>
+   
+<body >
+
+<script>
+
+
+function myFunction1()
+{
+document.getElementById("demo").innerHTML='<div class=demo_div><p class=p4>Active courses</p></div>'+'<div style="background-color:white;margin-left:20%;margin-top:0.5%;width:700px ;height:50px; border-radius:10px;"><p style="color:red; padding-top:10px; text-align:center;">Sorry, You ar not registered to see any of active courses</p></div>'
+
+
+
+}
+ 	
+ 	
+
+
+function myFunction2()
+{
+
+document.getElementById("demo").innerHTML='<div class=demo_div><p class=p4>G.K. Test</p></div>'+'<div class="question_div"><br>1. India has largest deposits of ____ in the world.<form name=form1><input type="radio" name="answer" value="A">A. Gold<br><input type="radio" name="answer" value="B">B. Copper<br><input type="radio" name="answer" value="C">C. Mica<br><input type="radio" name="answer" value="D">D. None of the above<br></form></div>'+'<div class="question_div"><br>2. Logarithm tables were invented by<form name=form2><input type="radio" name="answer" value="A">A. John Napier<br><input type="radio" name="answer" value="B">B. John Doe<br><input type="radio" name="answer" value="C">C. John Harrison<br><input type="radio" name="answer" value="D">D. John Douglas<br></form></div>'+'<div class="question_div"><br>3. Joule is the unit of<form name=form3><input type="radio" name="answer" value="A">A. temperature<br><input type="radio" name="answer" value="B">B. pressureCopper<br><input type="radio" name="answer" value="C">C. energy<br><input type="radio" name="answer" value="D">D. heat<br></form></div>'+'<div class="question_div"><br>4. Milkha Singh Stood ____ in 1960 Olympics, in Athletics.<form name=form4><input type="radio" name="answer" value="A">A. fourth in 400m final<br><input type="radio" name="answer" value="B">B. second in 400m final<br><input type="radio" name="answer" value="C">C. eighth in 50km walk<br><input type="radio" name="answer" value="D">D. seventh in 800m final<br><button type="button" class="button" color="blue" onclick="myFunction()">Evaluate</button></form></div>'
+
+}
+
+function myFunction()
+{ var x=0;
+	if(document.form1.answer[0].checked==false && document.form1.answer[1].checked==false && document.form1.answer[2].checked==true && document.form1.answer[3].checked==false)
+	{x=x+1;
+	
+	}
+
+	if(document.form2.answer[0].checked==true && document.form2.answer[1].checked==false && document.form2.answer[2].checked==false && document.form2.answer[3].checked==false)
+	{x=x+1;
+	 
+	}
+
+	if(document.form3.answer[0].checked==false && document.form3.answer[1].checked==false && document.form3.answer[2].checked==true && document.form3.answer[3].checked==false)
+	{x=x+1;
+	}
+
+	if(document.form4.answer[0].checked==true && document.form4.answer[1].checked==false && document.form4.answer[2].checked==false && document.form4.answer[3].checked==false)
+	{x=x+1;
+	 
+	}
+
+	
+		
+	document.getElementById("demo_ans").innerHTML='<div class=demo_right_ans_div><p class=p4>Your Score<br>'+x+'/4</p></div>'
+	
+	
+}
+
+
+
+
+</script>
+
+
+	<div class="div1">
+        <p class="p1">Xam_portaL_<br/>
+		Online Excercise</p>
+		
+		<div class="div2">
+		<!--add name email-id here-->
+
+		</div>
+		<form action="Close_session">
+            <button type="submit" id="save1" style=" background: transparent; cursor:pointer;
+    border: 0; " > <img src="{{=URL('static','images/logout.png')}}" id="logo1" alt="Logout" /><br/></button>
+		</form>
+        <!--
+		<form action="Close_session">
+            <button type="submit" style="border: 0; background: transparent" id="save1" > <img src="{{=URL('static','images/logout.png')}}" id="logo1" alt="Logout" /><br/></button>
+		</form>
+        -->
+	</div>
+	
+
+	<div class="grey">
+	
+	<div class="div3">
+		
+		<div class="div4">
+		<p class="p2">Menu</p>
+
+			<div class="div5">
+			<a style="margin-left:35px; margin-bottom:100px; text-decoration:none;" href="#" onclick="myFunction1()">Active course</a>
+			</div>	
+	
+			<div class="div5">
+			<a style="margin-left:30px; margin-bottom:100px; text-decoration:none;"  href="#" onclick="myFunction2()">Try a G.K. Test</a>
+			</div>
+
+			<div id="demo_ans">  
+		     	</div>
+	
+
+		</div>	
+
+	
+
+		<div class="div6"><p class="p3">Welcome to Xam_portaL_ Online Excercise!!!</p>
+
+		</div>
+
+	
+ 		 <div id="demo">  
+       		 </div>
+	
+	
+		
+	</div>
+
+	
+	</div>
+	
+
+</body>
+</html>

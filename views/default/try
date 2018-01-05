@@ -1,0 +1,10 @@
+def Student_Second():
+    session.quiz_id=request.vars.quiz_id
+    rows = db( db.quizes.id == request.vars.quiz_id and db.student_groups.group_name==db.quizes.group_name and db.quizes.Is_active=="Yes").select()
+    for row in rows:
+        if row.userid==session.userid:
+            redirect(URL('Xam_portaL','default','sdf'))
+            return 
+            
+    redirect(URL('Xam_portaL','default','Student_Index'))
+    return 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Registration</title>
+    <link rel="stylesheet" href="{{=URL('static','css/register.css')}}" />
+      
+</head>
+<body  >
+
+	
+	<div class="div1">
+		<p class="p1">Xam_portaL_<br/><br/>Online Excercise</p>
+		<div class="div2">
+			<!--add name email-id here-->
+		<p class="welcome">Complete Your Registration <br/>In three easy Steps</p> 
+
+		</div>
+
+		
+		<form action="index" style="margin-left:-85%; margin-top:12px;"><button type="submit" style="border: 0px; color:blue; cursor:pointer;" id="save1" >Home</button></form>
+
+<form action="Close_session" style="margin-left:85%; margin-top:-34px;">
+            <button type="submit" value="Log Out" id="save" style="border: 0;  color:blue; cursor: pointer; "  >Log in</button>
+        </form>
+		
+	</div>
+
+
+
+
+    <div class="grey">
+<article>
+    
+<form class="form1" action="verify_new">
+	<ul>
+        <li>
+        	<label for="name">Name:</label>
+                    <input type="text" name="name" size="40" id="name" required placeholder="Mandatory Field*"/>
+        </li>
+        <li>
+        	<label for="email">User Id:</label>
+            <input type="email" name="userid" size="40" id="email" required placeholder="Mandatory Field*"/>
+        </li>
+	 <li>
+        	<label for="password">Choose Password:</label>
+            <input type="password" name="password" size="40" id="password" required placeholder="Mandatory Field*"/>
+        </li>
+	</ul>
+    <p>
+        <button type="submit" class="action">Complete Registration</button>
+        <button type="reset" class="right">Reset</button>
+    </p>
+</form>
+</article>
+     
+    </div>
+    </body>
+</html>

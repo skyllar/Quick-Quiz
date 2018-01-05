@@ -18,9 +18,9 @@ a:active  {color:yellow;}
 #error
         {
             position:realtive;
-            margin-top:3.7%;
-            margin-left:64%;
-            font-size:11px;
+            top:50%;
+            
+            font-size:15px;
         }
 	</style>
     <script>
@@ -56,11 +56,8 @@ function func0()
 	<div class="div1">
 		<p class="p1">Xam_portaL_<br/>Online Excercise</p>
          {{session.x=""}}
-         <div id="error">
-                     		{{=error}}
-                	</div>
-        <a href="{{=URL('forgot')}}" onClick="func0()" style="text-decoration:none; margin-left:54%; top:1%;font-size:12px">Forgotten your password?</a>
-             
+        <a href="{{=URL('forgot')}}" onClick="func0()" style="text-decoration:none; margin-left:35%; top:0%;">Forgotten your password?</a>
+
 	</div>
 
 
@@ -116,17 +113,19 @@ function func0()
 					<input type="password" name="password" placeholder="password" required ></li>
             </ul>
 			 
-				<div class="login_button">
+				<li class="login_button">
                     <input  type="submit" id="login" value="Login &nbsp>>" style="cursor:pointer" >
-				</div>
+				</li>
 		</form>
 		<form action="register">
             <ul>
-				<div>
+				<li>
 					<input type="submit"  id="register" value="Register ??" style="cursor:pointer" >
-				</div>
+				</li>
 			</ul>
-             
+             <div id="error">
+                     		{{=error}}
+                	</div>
 
 
 		</form>
@@ -134,7 +133,7 @@ function func0()
 		
 		
 		</section>
-       <br><br>
+       
 		<div class="welcome"><p class="p3">Welcome to Xam_portaL_ Online Excercise!!!</p>
 
 		</div>

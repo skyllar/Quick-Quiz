@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Teacher Logged In</title>
+<link rel="stylesheet" href="{{=URL('static','css/teacher_second.css')}}" />
+      
+</head>
+   
+     <script>
+         a=0;b=0;c=0;d=0;
+         function check1()
+         {
+             if(! (myform.option_a.value && myform.option_b.value && myform.option_c.value && myform.option_d.value && myform.myquestion.value))
+                {
+                    document.getElementById("error").innerHTML="Fields Can't Be Left Blank"
+                    return (false);
+                }
+             else
+                 document.getElementById("error").innerHTML=""
+                return (true);
+         }
+        function check()
+        {
+            if ( a || b || c || d )
+                document.getElementById("insert").innerHTML='<button type="submit" id="next" onclick="return check1();"><img src="{{=URL('static','images/next.png')}}" id="logo" /><br/><l>Next</l></button>'
+            else
+                document.getElementById("insert").innerHTML=""
+        }
+        function func1()
+         {
+             if ( a == 0 )
+                 a++;
+               else
+                     a --;
+              check();
+         }
+     function func2()
+         {
+              if ( b == 0 )
+                 b++;
+               else
+                     b--;
+              check();
+         }
+     function func3()
+         {
+              if ( c== 0 )
+                 c++;
+               else
+                     c--;
+                      check();
+         }
+     function func4()
+         {
+              if ( d== 0 )
+                 d++;
+               else
+                     d--
+                     check();
+         }
+    
+      </script>  
+<body>
+
+
+	<div class="div1">
+		<p class="p1">Xam_portaL_<br/>Online Excercise</p>
+
+		<div class="div2">
+			<!--add name email-id here-->
+		<p class="welcome">Welcome {{=session.username}}</p> 
+		</div>
+		<p>Quiz /Subject Name: session.quiz_name</p>
+		
+		
+<!--		<form style="margin-left:5%; margin-top:15px; "action="Teacher_Index"><button type="submit" style="border: 0px; color:blue; cursor:pointer;" id="save1" >Home</button></form>
+
+<form action="Close_session" style="margin-left:85%; margin-top:-45px;">
+            <button type="submit" value="Log Out" id="save" style="border: 0;  color:blue; cursor: pointer; "  >Log out</button>
+        </form>
+-->		
+	</div>
+
+
+<div class="upper_div">
+	<!-- <h2 style="text-align:center;">Set Up Questions</h2>  
+	 <p>Add Question Here </p> -->   
+	 
+	<p>Question {{=session.current_question_count}}:</p>     	  
+	<div id="save_form">	
+		  
+</div>	
+	 <form  id="questions" name="myform" action="teach_quiz">		
+			<textarea name="myquestion" form="questions" rows="10" cols="70" overflow="scroll" id="textarea" placehol	der="Mandatory Field*"></textarea>
+
+
+
+
+<div class="lower_div">
+
+		<p >Add options</p>
+		  <div id="options">
+              <textarea name="option_a" form="questions" rows="1" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="answer1" id="answer1" value="a"  />
+		<br/>
+              <textarea name="option_b" form="questions" rows="1" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_b" onclick="func2()" value="b" />
+		<br/>
+              <textarea name="option_c" form="questions" rows="1" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_c" onclick="func3()" value="c" />	
+		<br/>
+              <textarea name="option_d" form="questions" rows="1" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_d" onclick="func4()" value="d" />
+             </div>
+             <div id="error">
+                 
+             </div>
+            <div id="insert">
+                   
+             </div>
+             
+		<button  type="submit" name="jump_to" value="{{=session.current_question_count + 1}}" style="border: 0px; border-radius:10px; color:#1E90FF;cursor:pointer;" id="next_button"  onclick="del_cookie()">Next Question</button>
+		<div id="jump_to" >Jump To Question No:
+		{{for i in range(1,session.temp_total+1):}} 
+			<button type="submit" id="butt" name="jump_to" value="{{=i}}" >{{=i}}</button>
+		{{pass}}
+	    <button type="submit" name="jump_to" value="{{=session.current_question_count -1}}" style="border: 0px;width:200px; height:37px; margin-top:10px;margin-left:-75%; border-radius:10px; color:#1E90FF; cursor:pointer;"  onclick="del_cookie()">Previous Question</button>
+
+	</div>
+  </form>
+</div>
+			<script>
+                a="{{=b[0]}}";
+                b="{{=b[1]}}";
+                c="{{=b[2]}}";
+                d="{{=b[3]}}";
+                
+                if ( a == "a" ) 
+                    $('#answer1').prop('checked', true).trigger('change');
+                if ( b == "b" ) 
+                    $('#answer2').prop('checked', true).trigger('change');
+                if ( c == "c" ) 
+                    $('#answer3').prop('checked', true).trigger('change');
+                if ( d == "d" ) 
+                    $('#answer4').prop('checked', true).trigger('change');
+         
+    		total_question_count="{{=session.temp_total}}"
+            current_question_count="{{=session.current_question_count}}"
+    		if(current_question_count == total_question_count)
+    		{
+    				document.getElementById("next_button").innerHTML=""+"Submit"
+    		}
+    	
+    </script>
+       
+</body>
+</html>

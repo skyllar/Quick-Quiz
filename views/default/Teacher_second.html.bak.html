@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Teacher Logged In</title>
+<link rel="stylesheet" href="{{=URL('static','css/teacher_second.css')}}" />
+      
+</head>
+   
+     <script>
+         a=0;b=0;c=0;d=0;
+             function check1()
+         {
+             if(! (myform.option_a.value && myform.option_b.value && myform.option_c.value && myform.option_d.value && myform.myquestion.value))
+                {
+                    document.getElementById("error").innerHTML="Fields Can't Be Left Blank"
+                    return (false);
+                }
+             else
+                 document.getElementById("error").innerHTML=""
+                return (true);
+         }
+        function check()
+        {
+            if ( a || b || c || d )
+                document.getElementById("insert").innerHTML='<button type="submit" id="next" onclick="return check1();"><img src="{{=URL('static','images/next.png')}}" id="logo" /><br/><l>Next</l></button>'
+            else
+                document.getElementById("insert").innerHTML=""
+        }
+        function func1()
+         {
+             if ( a == 0 )
+                 a++;
+               else
+                     a --;
+              check();
+         }
+     function func2()
+         {
+              if ( b == 0 )
+                 b++;
+               else
+                     b--;
+              check();
+         }
+     function func3()
+         {
+              if ( c== 0 )
+                 c++;
+               else
+                     c--;
+                      check();
+         }
+     function func4()
+         {
+              if ( d== 0 )
+                 d++;
+               else
+                     d--
+                     check();
+         }
+    
+      </script>  
+<body>
+
+<h2>Set Up Questions</h2>         	  
+	<div id="save_form">	
+	   <p>Add Question 1 </p>
+        
+	     <form  id="questions" name="myform" action="save_question">		
+		<textarea name="myquestion" form="questions" rows="10" cols="70" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea>
+		<p>Add options</p>
+		  <div id="options">
+              <textarea name="option_a" form="questions" rows="2" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_a" onclick="func1()" value="a"  />
+		<br/>
+              <textarea name="option_b" form="questions" rows="2" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_b" onclick="func2()" value="b" />
+		<br/>
+              <textarea name="option_c" form="questions" rows="2" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_c" onclick="func3()" value="c" />	
+		<br/>
+              <textarea name="option_d" form="questions" rows="2" cols="34" overflow="scroll" id="textarea" placeholder="Mandatory Field*"></textarea><input type="checkbox" name="Is_d" onclick="func4()" value="d" />
+             </div>
+             <div id="error">
+                 
+             </div>
+               <div id="insert">
+                   
+             </div
+             </form>
+        <form action="Teacher_Index">
+            
+        <button type="submit" id="next"  ><img src="{{=URL('static','images/next.png')}}" id="logo" /><br/><l>End Quiz!</l></button>
+        </form>
+	   </div>
+</body>
+</html>

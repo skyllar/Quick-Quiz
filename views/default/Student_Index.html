@@ -1,0 +1,214 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Stu_Main</title>
+    <link rel="stylesheet" href="{{=URL('static','css/Student_index.css')}}">
+
+    <style>
+    #course:hover
+    {
+    	border:1px solid;
+    	color:red;
+    	background-color:red;
+    }
+    
+
+
+    </style>
+<script>
+      function set()
+      {
+          {{session.y=""}}
+      }
+  </script> 
+
+
+</head>
+  
+<body onload="set()">
+
+<script>
+
+function myFunction1()
+{
+
+	/*p='<a href="{{=URL('Xam_portaL','default','Student_Index')}}" style="text-align:center; text-decoration:none;">'
+	/s='</a>'
+	*/
+	p=""
+	s=""
+	document.getElementById("pass_result").innerHTML=""
+	document.getElementById("demo").innerHTML=""
+	document.getElementById("demo_ans").innerHTML=""
+	document.getElementById("demo").innerHTML+='<div class=demo_div><p class=p4>Active Contests</p></div>'
+	temp=0
+	
+	{{for j in a.values():}}
+		temp=temp+1
+		temp1="{{=j[1]}}"
+	document.getElementById("demo").innerHTML+='<button type="submit" name="quiz_id" value="'+temp1+'" style="background-color:white;margin-left:20%;margin-top:0.5%;width:700px ;height:53px; border-radius:10px;color:#1E90FF;" id="course">{{=j[0]}}  ; Quizid:{{=j[1]}}</button>'
+	
+	a="{{=j[2]}}"
+	if (a==1)
+		//alert("It is eligible")
+		if(temp==1)
+			document.getElementById("course").innerHTML+='<div style="background-color:#009900;margin-left:106%;width:100px ;margin-top:-40px;height:53px; border-radius:10px;"><p style="text-align:center; color:white; padding-top:10px;">Eligible!!</p></div>'
+		else
+			document.getElementById("course").innerHTML+='<div style="background-color:#009900;margin-left:106%;margin-top:-7px;width:100px ;height:53px; border-radius:10px;"><p style="text-align:center; color:white; padding-top:10px;">Eligible!!</p></div>'
+	
+	if ( a==0)
+		//alert("It is unligible")
+		if(temp==1)
+		document.getElementById("course").innerHTML+='<div style="background-color:#A80000;;margin-left:106%;width:100px ;margin-top:-40px;height:53px; border-radius:10px;"><p style="text-align:center; color:white; padding-top:8px;">Not Eligible!!</p></div>'
+		else
+			document.getElementById("course").innerHTML+='<div style="background-color:#A80000;;margin-left:106%;margin-top:-7px;width:100px ;height:53px; border-radius:10px;"><p style="text-align:center; color:white; padding-top:8px;">Not Eligible!!</p></div>'
+
+	{{pass}}
+	document.getElementById("profile").innerHTML=""
+	
+}
+ 	
+ 	
+
+
+function myFunction2()
+{
+document.getElementById("profile").innerHTML=""
+
+document.getElementById("demo").innerHTML='<div class=demo_div><p class=p4>G.K. Test</p></div>'+'<div class="question_div"><br>1. India has largest deposits of ____ in the world.<form name=form1><input type="radio" name="answer" value="A">A. Gold<br><input type="radio" name="answer" value="B">B. Copper<br><input type="radio" name="answer" value="C">C. Mica<br><input type="radio" name="answer" value="D">D. None of the above<br></form></div>'+'<div class="question_div"><br>2. Logarithm tables were invented by<form name=form2><input type="radio" name="answer" value="A">A. John Napier<br><input type="radio" name="answer" value="B">B. John Doe<br><input type="radio" name="answer" value="C">C. John Harrison<br><input type="radio" name="answer" value="D">D. John Douglas<br></form></div>'+'<div class="question_div"><br>3. Joule is the unit of<form name=form3><input type="radio" name="answer" value="A">A. temperature<br><input type="radio" name="answer" value="B">B. pressureCopper<br><input type="radio" name="answer" value="C">C. energy<br><input type="radio" name="answer" value="D">D. heat<br></form></div>'+'<div class="question_div"><br>4. Milkha Singh Stood ____ in 1960 Olympics, in Athletics.<form name=form4><input type="radio" name="answer" value="A">A. fourth in 400m final<br><input type="radio" name="answer" value="B">B. second in 400m final<br><input type="radio" name="answer" value="C">C. eighth in 50km walk<br><input type="radio" name="answer" value="D">D. seventh in 800m final<br><button type="button" class="button" color="blue" style="margin-left:53%;" onclick="myFunction()">Evaluate</button></form></div>'
+
+
+}
+
+function myFunction()
+{ var x=0;
+	if(document.form1.answer[0].checked==false && document.form1.answer[1].checked==false && document.form1.answer[2].checked==true && document.form1.answer[3].checked==false)
+	{x=x+1;
+	
+	}
+
+	if(document.form2.answer[0].checked==true && document.form2.answer[1].checked==false && document.form2.answer[2].checked==false && document.form2.answer[3].checked==false)
+	{x=x+1;
+	 
+	}
+
+	if(document.form3.answer[0].checked==false && document.form3.answer[1].checked==false && document.form3.answer[2].checked==true && document.form3.answer[3].checked==false)
+	{x=x+1;
+	}
+
+	if(document.form4.answer[0].checked==true && document.form4.answer[1].checked==false && document.form4.answer[2].checked==false && document.form4.answer[3].checked==false)
+	{x=x+1;
+	 
+	}
+
+	
+		
+	document.getElementById("demo_ans").innerHTML='<div class=demo_right_ans_div><p class=p4>Your Score<br>'+x+'/4</p></div>'
+	
+	
+}
+ function myFunction4()
+     {
+         a="{{=session.a}}"
+         if (a == document.getElementById("new_pwd").value) 
+         {  alert("Password Changed")
+             return true
+         }
+         else
+         {
+             alert("Wrong Password Entered")
+             return false
+         }
+     }
+     
+
+ function myFunction3()
+  {  document.getElementById("pass_result").innerHTML=""
+  	document.getElementById("demo").innerHTML=""
+  	document.getElementById("demo_ans").innerHTML=""
+  	document.getElementById("profile").innerHTML='<div ><p Profile Details</p></div><br/><p class="p5">User-Id</p><div class="personal_details">{{=session.userid}}</div><p class="p6">Update Password</p><br/><form class="p5" action="update_password" >New Password: <input type="password" name="new_pwd" id="new_pwd" required><br/>Old Password:  <input type="password" name="old_pwd" id="old_pwd" required> <br/><button type="submit" class="button" onclick="return myFunction4()" >update</button></form> '
+       
+
+  }
+
+
+  
+
+
+
+
+
+</script>
+
+    
+	<div class="div1">
+		<p class="p1">Xam_portaL_<br/>Online Excercise</p>
+		
+		<div class="div2">
+			<!--add name email-id here-->
+		<p class="welcome">Welcome<br/> {{=session.username}}</p> 
+		</div>
+	
+
+		<form action="index" style="margin-left:5%; margin-top:40px;"><button type="submit" style="border: 0px; color:blue; cursor:pointer;" id="save1" >Home</button></form>
+
+<form action="Close_session" style="margin-left:85%; margin-top:-45px;">
+            <button type="submit" value="Log Out" id="save" style="border: 0;  color:blue; cursor: pointer; "  >Log out</button>
+        </form>
+		
+	</div>
+	
+
+	<div class="grey">
+	
+	<div class="div3">
+		
+		<div class="div4">
+		<p class="p2">Menu</p>
+
+			<div class="div5">
+			<a style="margin-left:35px; margin-bottom:90px; text-decoration:none;" href="#" onclick="myFunction1()"><p class="text_center">Active Contests</p></a>
+			</div>	
+			
+			<div class="div5">
+			<a style="margin-left:30px; margin-bottom:100px; text-decoration:none;"  href="#" onclick="myFunction2()"><p class="text_center">Try a G.K. Test</p></a>
+			</div>
+			<div class="div7">
+			<a style="margin-left:35px; margin-bottom:110px; text-decoration:none;"  href="#" onclick="myFunction3()"><p class="text_center">Profile</p></a>
+			</div>
+
+			
+			<div id="demo_ans">  
+		     	</div>
+		     	
+	
+
+		</div>	
+
+	
+
+		<div class="div6"><p class="p3">Welcome to Xam_portaL_ Online Excercise!!!</p>
+
+		</div>
+
+	<form action="Student_Second"> 	
+		 <div id="demo">  
+       	</div>
+	<form >
+	
+	<form action="profile_details"> 	
+		 <div id="profile">  
+       	</div>
+       	 <div id="pass_result">
+       	 </div>
+	<form >
+
+		
+	</div>
+
+	
+	</div>
+	
+
+</body>
+</html>

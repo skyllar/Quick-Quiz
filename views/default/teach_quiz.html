@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Teacher Logged In</title>
+<link rel="stylesheet" href="{{=URL('static','css/teacher_second.css')}}" />
+      
+</head>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script>
+         a=0;b=0;c=0;d=0;
+         function check1()
+         {
+             //return (true)
+             if(! (myform.option_a.value && myform.option_b.value && myform.option_c.value && myform.option_d.value && myform.myquestion.value &&(a || b || c || d)))
+                {
+                    document.getElementById("error").innerHTML="Fields Can't Be Left Blank"
+                    return (false);
+                }
+             else
+             {
+                 document.getElementById("error").innerHTML=""
+                 return (true);
+             }
+         }
+         /*    function check()
+        {
+            if ( a || b || c || d )
+            {
+                document.getElementById("insert").innerHTML='<button type="submit" id="next" onclick="return check1();"><img src="{{=URL('static','images/next.png')}}" id="logo" /><br/><l>Next</l></button>'
+            }
+             else
+                document.getElementById("insert").innerHTML=""
+        }
+        */
+        function func1()
+         {
+             if ( a == 0 )
+                 a++;
+               else
+                     a --;
+             //   check();
+         }
+     function func2()
+         {
+              if ( b == 0 )
+                 b++;
+               else
+                     b--;
+             //  check();
+         }
+     function func3()
+         {
+              if ( c== 0 )
+                 c++;
+               else
+                     c--;
+             //  check();
+         }
+     function func4()
+         {
+              if ( d== 0 )
+                 d++;
+               else
+                     d--
+                     //check();
+         }
+    
+   
+    </script>
+<style>
+    #butt
+{
+	width:65px;
+	height:45px;
+}
+    #jump_to
+{
+	border:0px dotted green;
+	position:absolute;
+	margin-left:70%;
+	margin-right:10%;
+	top:25%;
+	
+	width:207px;
+	
+}
+    </style>
+    	
+<body>
+
+
+	<div class="div1">
+		<p class="p1">Xam_portaL_<br/>Online Excercise</p>
+
+		<div class="div2">
+			<!--add name email-id here-->
+		<p class="welcome">Welcome {{=session.username}}</p> 
+		</div>
+       
+		
+		
+<!--		<form style="margin-left:5%; margin-top:15px; "action="Teacher_Index"><button type="submit" style="border: 0px; color:blue; cursor:pointer;" id="save1" >Home</button></form>
+
+<form action="Close_session" style="margin-left:85%; margin-top:-45px;">
+            <button type="submit" value="Log Out" id="save" style="border: 0;  color:blue; cursor: pointer; "  >Log out</button>
+        </form>
+-->		
+	</div>
+
+ <p>Quiz Name: {{=session.quiz_name}}</p>
+<div class="upper_div">
+	<!-- <h2 style="text-align:center;">Set Up Questions</h2>  
+	 <p>Add Question Here </p> -->   
+	 
+	<p>Question {{=session.current_question_count}}:</p>     	  
+	
+	 <form  id="questions" name="myform" action="teach_quiz">		
+		<textarea name="myquestion" form="questions" rows="10" cols="70" overflow="scroll" id="textarea"></textarea>
+    <div class="lower_div">
+		<p >Add options</p>
+		  <div id="options">
+              <textarea name="option_a" form="questions" id="oa" rows="1" cols="34" overflow="scroll" id="textarea"  ></textarea><input type="checkbox" name="answer1" id="ans1" value="a" onclick="func1()" />
+		<br/>
+              <textarea name="option_b" form="questions" id="ob" rows="1" cols="34" overflow="scroll" id="textarea"  ></textarea><input type="checkbox" name="answer2" id="ans2" value="b" onclick="func2()"/>
+		<br/>
+              <textarea name="option_c" form="questions" id="oc" rows="1" cols="34" overflow="scroll" id="textarea"  ></textarea><input type="checkbox" name="answer3" id="ans3" value="c" onclick="func3()" />	
+		<br/>
+              <textarea name="option_d" form="questions" id="od" rows="1" cols="34" overflow="scroll" id="textarea"  ></textarea><input type="checkbox" name="answer4" id="ans4" value="d" onclick="func4()"/>
+          </div>
+             <div id="error">   
+             </div>
+            <div id="insert">
+             </div>
+        
+         
+        <div id="jump_to" style="font-size:18px">Jump To Question No: <br/>
+            
+                {{for i in range(1,int(session.current_max)+1):}}
+                    <button type="submit" id="butt" name="jump_to" value="{{=i}}" onclick="return check1();">{{=i}}</button>
+                {{pass}}
+        </div>
+        
+        <button  type="submit" name="jump_to" value="{{=session.current_question_count + 1}}" style="border: 0px;width:200px; height:37px; border-radius:10px; color:#1E90FF;cursor:pointer;margin-left:110%;position:relative;top:-35%;" id="next_button" onclick="return check1();">Next Question</button>
+		
+        <button type="submit" name="jump_to" value="{{=session.current_question_count -1}}" style="border: 0px;width:200px; height:37px;position:relative;top:-30%;margin-left:110%; border-radius:10px; color:#1E90FF; cursor:pointer;" onclick="return check1();">Previous Question</button>
+
+       </div>
+  </form>
+
+    <script>
+                    
+                a="{{=b[5]}}";
+                b="{{=b[6]}}";
+                c="{{=b[7]}}";
+                d="{{=b[8]}}";
+        //alert(a)
+                if (a=="a" ) 
+                {
+                      $('#ans1').prop('checked', true).trigger('change');
+                     
+                    //alert("a is checked")
+                }
+                if (b=="b" ) 
+                {
+                    $('#ans2').prop('checked', true).trigger('change');
+                    //alert("b is checked")
+                }
+                if ( c == "c" ) 
+                {
+                    $('#ans3').prop('checked', true).trigger('change');
+                    //alert("b is checked")
+                }
+                if ( d == "d" ) 
+                {
+                    $('#ans4').prop('checked', true).trigger('change');
+                    //alert("d is checked")
+                }
+         
+            document.getElementById('textarea').value = "{{=b[0]}}";   
+            document.getElementById('oa').value =  "{{=b[1]}}";  
+            document.getElementById('ob').value = " {{=b[2]}}"; 
+            document.getElementById('oc').value =  "{{=b[3]}}";   
+            document.getElementById('od').value =  "{{=b[4]}}";  
+                
+    		total_question_count="{{=session.temp_total}}"
+            current_question_count="{{=session.current_question_count}}"
+    		if(current_question_count == total_question_count)
+    		{
+    				document.getElementById("next_button").innerHTML=""+"Submit"
+    		}
+    	
+    </script>
+</div>
+              
+		<!--
+           <div>
+                
+                q1{{=b[0]}}
+               <br>
+               q2{{=b[1]}}
+               <br>
+               q3 {{=b[2]}}
+               <br>
+              q4 {{=b[3]}}
+               <br>
+                   
+               a: {{=b[5]}}
+               <br>
+               b: {{=b[6]}}
+               <br>
+               c: {{=b[7]}}
+               <br>
+               d: {{=b[8]}}
+               <br>
+        </div>
+        -->
+</body>
+</html>

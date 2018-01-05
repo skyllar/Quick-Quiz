@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Login</title>
+    <link rel="stylesheet" href="{{=URL('static' , 'css/normalize.css')}}" />
+    <link rel="stylesheet" href="{{=URL('static' , 'css/index.css')}}" /> 
+	<style>
+	#register
+	{
+		margin-left:10%;
+		background:#FFC266;
+		border: thin dotted #FF0000;
+	}
+	#login
+	{
+		border: thin dotted #FF0000;
+		background:#FFC266;
+	}
+
+	.login_text {
+		
+		font-size:18px;
+		color: #222222;
+	}
+    #error
+    {
+        font-size:12px;
+            padding-top:0%;
+		color:#FF0000;
+    }
+	</style>
+</head>
+<body>
+	<div id="heading"> Xam_portaL_</div>
+	<section class="loginform cf">
+		<form action="login">
+			<ul>
+				<li>
+					<label for="usermail" class="login_text">User-Id</label>
+					<input type="email" name="userid" placeholder="user-id" required>
+				</li>
+                
+				<li>
+					<label for="password" class="login_text">Password</label>
+					<input type="password" name="password" placeholder="password" required></li>
+                <div id="error">
+                     {{=error}}
+                </div>
+				<li>
+					<input type="submit" id="login" value="Login >>" >
+				</li>
+			</ul>
+		</form>
+        <form action="register">
+            <ul>
+                <li>
+                    <input type="submit" id="register" value="Register ??" >
+                </li>
+            </ul>
+        </form>
+	</section>
+    
+</body>
+</html>

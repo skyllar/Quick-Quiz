@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Teacher's Index</title>
+    <link rel="stylesheet" href="{{=URL('static','css/teacher.css')}}">
+</head>
+   
+<body onload="myfunction()";>
+
+    <script>
+function myfunction()
+{
+document.getElementById("date").innerHTML='<option>Hours</option>';
+for(var i=0;i<5;i++)
+date.innerHTML=date.innerHTML+"<option>"+i+"</option>";
+
+
+document.getElementById("month").innerHTML='<option>Minutes</option>';
+for(var i=0;i<60;i++)
+month.innerHTML=month.innerHTML+"<option>"+i+"</option>";
+
+}
+    </script>
+
+
+
+
+
+	<div class="div1">
+		<p class="p1">Xam_portaL_<br/>Online Excercise</p>
+		
+		<div class="div2">
+			<!--add name email-id here-->
+		<p class="welcome">Welcome <br/>{{=session.username}}</p> 
+		</div>
+	
+
+		<form style="margin-left:5%; margin-top:16px;"><button type="submit" style="border: 0px; color:blue; cursor:pointer;" id="save1" >Home</button></form>
+
+<form action="Close_session" style="margin-left:85%; margin-top:-25px;">
+            <button type="submit" value="Log Out" id="save" style="border: 0;  color:blue; cursor: pointer; "  >Log out</button>
+        </form>
+		
+	</div>
+
+
+
+    
+    
+    
+<div id="header">
+    
+   
+    <div class="transbox">
+	<div id="loginBox" >
+        <div id="test_details">Organise Contest ?<img src="{{=URL('static','/images/pen.jpg')}}" alt="Logo" class="logo" /></div>
+        
+		<form action="Teacher_second" id="teacherform" >
+         	  <!-- <label>Course Id </label><input type="text" name="courseid" class="boxes" required placeholder="Mandatory Field*"><br/> -->
+         	   <label>Subject Id </label><input type="text" name="subject_id" class="boxes" required placeholder="Mandatory Field*"><br/>
+            <label>Quiz/Subject Name </label><input type="text" name="quiz_name" class="boxes" required placeholder="Mandatory Field*"><br/>
+               <label>Total Question </label><input type="text" name="total_question" class="boxes" required placeholder="Mandatory Field*"><br/>
+
+                Test Duration
+                <select id="date" name="hour" style="margin-top:20px; margin-left:110px">
+                </select>
+                <select id="month" name="minute">
+                </select>
+                <br>
+
+               <!-- <label>Test Duration </label><input type="time" name="duration" class="boxes" required placeholder="Mandatory Field*"><br/>-->
+           <!-- <label>Total Questions </label><input type="number" name="totalquestions"><br/>
+            <label>Total Sections </label><input type="number" name="totalsection"><br/> 
+           <label>Starting Time </label><input type="datetime-local" name="startingtime"><br/> -->
+
+            Choose Group
+            <select name="sel" id="select_tag" class="boxes" required >
+                {{for i in a.values():}}
+                <option value{{=i}} >{{=i}}</option>
+                {{pass}}
+            </select>
+            
+              <div class="description"><p>Description if any, </p></div>
+       		 <textarea name="description" form="teacherform" rows="10" cols="53" overflow="scroll" id="textarea"></textarea>
+
+            <div id="createpaper" > 
+                <button type="submit" style="border: 0; background: transparent">
+                    <img src="{{=URL('static','/images/plus.jpg')}}" class="logo1" alt="submit" /><br/><l style="color:Green;font-size:150%;">Add Questions</l>
+                </button>
+            </div>
+         </form>
+         </div> 
+    </div> 
+</div>
+</body>
+</html>

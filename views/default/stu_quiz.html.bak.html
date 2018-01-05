@@ -1,0 +1,208 @@
+<html>
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Online_Test</title>
+    <link rel="stylesheet" href="{{=URL('static','css/stu_quiz_page.css')}}">
+    <script>
+        
+function checkFirstVisit() 
+{
+  if(document.cookie.indexOf('mycookie')==-1) 
+  {
+    // cookie doesn't exist, create it now
+    document.cookie = 'mycookie=1';
+    {{session.reloaded = ""}}
+  }
+  else 
+     {
+         // alert('You refreshed!');
+     }
+}
+        name='mycookie'
+        function del_cookie()
+        {
+            {{session.reloaded = "Yes"}}
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'; 
+            /* document.myform1.action = "time_over"
+             $( "#submitted" ).submit();
+              */
+            
+            
+        }
+        </script>
+    <style>
+    #displayTime
+    {
+            position:relative;
+           
+            left:70%;
+            top:-10%
+    }
+    </style>
+</head>
+    
+<body id="yo"  onload="checkFirstVisit()">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	  <script >
+	      
+var hours = "{{=session.hours}}";
+var minutes ="{{=session.minutes}}";
+var seconds ="{{=session.seconds}}";
+var timer = null;
+
+
+timer = setInterval(counter, 1000);
+
+
+function stop(){
+	clearInterval(timer);
+}
+ 
+function counter() {
+
+
+    var hh = 0;
+    var mm = 0;
+    var ss = 0;
+
+    
+    ss = seconds - 1;
+    if (seconds == 0 && minutes > 0 ) {
+        seconds = 59;
+        minutes = minutes - 1;
+        mm = minutes - 1;
+        if (minutes == 0 && hours > 0) {
+            minutes = 59;
+            hours = hours - 1;
+            hh = hours - 1;
+        }
+    }
+    else
+        seconds = seconds - 1;
+    
+    // if (seconds < 10) {
+    //   ss = "0" + seconds;
+    //}else{
+        ss = seconds;
+    //}
+    //if (minutes < 10) {
+    //   mm = "0" + minutes;
+    //}else{
+        mm = minutes;
+    //}
+    //if (hours < 10) {
+    //   hh = "0" + hours;
+    // }else{
+        hh = hours;
+    //}
+
+    $('#displayTime').html(hh + " : " + mm + " : " + ss);
+
+	if ( seconds == 0 && minutes == 0 && hours == 0) {
+          stop()
+		check= alert("Sorry,Your Time is Over \nPlease click ok to submit")
+         document.myform1.action = "time_over";
+        $( "#submitted" ).submit();
+	}
+    document.getElementById("hide_hh").value=hh;
+   document.getElementById("hide_mm").value=mm;
+   document.getElementById("hide_ss").value=ss; 
+   
+}
+
+        
+          
+          
+         
+	  </script>
+    
+   
+	
+		<div class="div1">
+            
+			<p class="p1">Exam_portaL_<br/>Online_excercisE</p> 
+			
+			<div class="div2">
+			<!--add name email-id here-->
+			<p class="welcome">Welcome<br/> {{=session.username}}</p> 
+			</div>
+	
+
+			
+
+		
+	   </div>
+  
+    
+    
+          	  <p>Subject/Topic Name </p>
+    <div style=" margin-left:170px;margin-top:-40px; border:1px solid black; border-radius:10px;width:250px;padding:.5%">{{=session.quiz_name}}</div>
+          	  <p>Test Duration </p>
+    <div style="margin-left:170px;margin-top:-35px; border:1px solid black; border-radius:10px;width:250px;padding:.5% ">{{=session.hours}}Hour {{=session.minutes}}minutes</div><br/>
+   
+    <p style="font-size:25px; font-style:bold;">Question {{=session.current_question_count}}:</p><br/>
+    <div style="margin-left:10px;margin-top:-35px; border:0.5px solid black;padding:0.5%; border-radius:10px;width:750px;">{{=a[0]}}
+		</div>
+		<br/>
+		
+		<form action="stu_quiz" id="submitted" name="myform1">
+    
+            <button type="submit" name="jump_to" value="{{=session.temp_total + 1}}" style="border: 0px; width:80px; height:30px; border-radius:10px;  margin-left:50%; margin-top:-17.5%; color:blue; cursor:pointer;" id="save1" onclick="del_cookie()" >End Quiz!</button><br/>
+            
+		<input type="checkbox" name="answer1" id="answer1" value="a"><div class="options" >A. {{=a[1]}}</div><br/>
+		<input type="checkbox" name="answer2" id="answer2" value="b"><div class="options" >B. {{=a[2]}}</div><br/>
+		<input type="checkbox" name="answer3" id="answer3"value="c"><div class="options" >C. {{=a[3]}}</div><br/>
+		<input type="checkbox" name="answer4" id="answer4" value="d"><div class="options" >D. {{=a[4]}}</div>
+
+       <input id="hide_hh" type="hidden" name="hh" value="0">     
+       <input id="hide_mm" type="hidden" name="mm" value="0"> 
+       <input id="hide_ss" type="hidden" name="ss" value="0"> 
+         
+		<button  type="submit" name="jump_to" value="{{=session.current_question_count + 1}}" style="border: 0px; border-radius:10px; color:#1E90FF;cursor:pointer; width:150px;height:30px;" id="next_button"  onclick="del_cookie()">Next Question</button>
+     
+     <div>Timer elapsed:</div>
+    <div id="displayTime" style="display:"> </div>
+	<div id="jump_to" >Jump To Question No:
+	{{for i in range(1,session.temp_total+1):}} 
+		<button type="submit" id="butt" name="jump_to" value="{{=i}}"  onclick="del_cookie()">{{=i}}</button>
+	{{pass}}
+	</div>
+            
+            
+         
+           <button type="submit" name="jump_to" value="{{=session.current_question_count -1}}" style="border: 0px;width:150px; height:30px; paddin-top:-10%;margin-left:10%; border-radius:10px; color:#1E90FF; cursor:pointer;"  onclick="del_cookie()">Previous Question</button>
+		
+		</form>
+        <!--
+        <p>This is option a = {{=b[0]}}</p>
+            <p>This is option b = {{=b[1]}}</p>
+            <p>This is option c = {{=b[2]}}</p>
+            <p>This is option d = {{=b[3]}}</p>
+        -->
+    
+		<script>
+                a="{{=b[0]}}";
+                b="{{=b[1]}}";
+                c="{{=b[2]}}";
+                d="{{=b[3]}}";
+                
+                if ( a == "a" ) 
+                    $('#answer1').prop('checked', true).trigger('change');
+                if ( b == "b" ) 
+                    $('#answer2').prop('checked', true).trigger('change');
+                if ( c == "c" ) 
+                    $('#answer3').prop('checked', true).trigger('change');
+                if ( d == "d" ) 
+                    $('#answer4').prop('checked', true).trigger('change');
+         
+    		total_question_count="{{=session.temp_total}}"
+            current_question_count="{{=session.current_question_count}}"
+    		if(current_question_count == total_question_count)
+    		{
+    				document.getElementById("next_button").innerHTML=""+"Submit"
+    		}
+    	
+    </script>
+</body>
+</html>
